@@ -1,4 +1,3 @@
-
 package org.example.api.exception.handler;
 
 import static java.util.Objects.requireNonNull;
@@ -18,7 +17,8 @@ import org.example.core.exception.UseCaseException;
 public class GlobalExceptionHandler implements ExceptionHandlerFunction {
 
     @Override
-    public HttpResponse handleException(ServiceRequestContext ctx, HttpRequest req, Throwable cause) {
+    public HttpResponse handleException(ServiceRequestContext ctx, HttpRequest req,
+        Throwable cause) {
         if (cause instanceof ValidationException) {
             final HttpStatus status = HttpStatus.BAD_REQUEST;
             return HttpResponse.ofJson(status, new ErrorResponse(status.reasonPhrase(),
@@ -41,9 +41,11 @@ public class GlobalExceptionHandler implements ExceptionHandlerFunction {
     }
 
     /**
-     * A sample HTTP response which is sent to a client when a {@link ValidationException} is raised.
+     * A sample HTTP response which is sent to a client when a {@link ValidationException} is
+     * raised.
      */
     public static class ErrorResponse {
+
         private final String error;
         private final String message;
         private final String path;

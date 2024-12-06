@@ -1,12 +1,12 @@
 package org.example.client.model;
 
-public class StudentCreateResponse {
+public class UserResponse {
 
     private String id;
     private String name;
     private int age;
 
-    public StudentCreateResponse(String id, String name, int age) {
+    public UserResponse(String id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;

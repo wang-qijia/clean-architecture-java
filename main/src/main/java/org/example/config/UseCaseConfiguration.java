@@ -1,9 +1,9 @@
 package org.example.config;
 
-import org.example.core.usecase.CreateStudentUseCase;
-import org.example.core.usecase.FindStudentByNameUseCase;
-import org.example.core.usecase.SearchStudentUseCase;
-import org.example.core.usecase.repository.StudentRepository;
+import org.example.core.usecase.CreateUserUseCase;
+import org.example.core.usecase.FindUserByNameUseCase;
+import org.example.core.usecase.SearchUserUseCase;
+import org.example.core.usecase.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,18 +14,18 @@ import org.springframework.context.annotation.Configuration;
 public class UseCaseConfiguration {
 
     @Bean
-    FindStudentByNameUseCase findStudentByNameUseCase(StudentRepository studentRepository) {
-        return new FindStudentByNameUseCase(studentRepository);
+    FindUserByNameUseCase findUserByNameUseCase(UserRepository UserRepository) {
+        return new FindUserByNameUseCase(UserRepository);
     }
 
     @Bean
-    CreateStudentUseCase createStudentUseCase(StudentRepository studentRepository) {
-        return new CreateStudentUseCase(studentRepository);
+    CreateUserUseCase createUserUseCase(UserRepository UserRepository) {
+        return new CreateUserUseCase(UserRepository);
     }
 
     @Bean
-    SearchStudentUseCase searchStudentUseCase(StudentRepository studentRepository) {
-        return new SearchStudentUseCase(studentRepository);
+    SearchUserUseCase searchUserUseCase(UserRepository UserRepository) {
+        return new SearchUserUseCase(UserRepository);
     }
 
 }

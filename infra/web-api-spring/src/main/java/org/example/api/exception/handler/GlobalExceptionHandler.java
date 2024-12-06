@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 
-
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -35,12 +34,19 @@ public class GlobalExceptionHandler {
     @Autowired
     private MessageSource messageSource;
 
+    public static ErrorResponse buildErrorResponseStatus(final HttpStatus httpStatus,
+        final String message, final String path) {
+        return new ErrorResponse(httpStatus.getReasonPhrase(), message, path, httpStatus.value(),
+            LocalDateTime.now().toString());
+    }
 
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ErrorResponse handleHttpMessageNotReadableException(final HttpMessageNotReadableException exception, final Locale locale) {
-        final String message = messageSource.getMessage("exception.request.body.is.invalid.or.missing", null, locale);
+    public ErrorResponse handleHttpMessageNotReadableException(
+        final HttpMessageNotReadableException exception, final Locale locale) {
+        final String message = messageSource.getMessage(
+            "exception.request.body.is.invalid.or.missing", null, locale);
         return buildErrorResponseStatus(HttpStatus.BAD_REQUEST, message, "/");
     }
 
@@ -48,17 +54,9 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BindException.class)
     public ErrorResponse handleBindException(final BindException exception, final Locale locale) {
-        final Object[] args = {StringUtils.substringBetween(exception.getMessage(), "property '", "'")};
+        final Object[] args = {
+            StringUtils.substringBetween(exception.getMessage(), "property '", "'")};
         final String message = messageSource.getMessage("exception.field.format", args, locale);
-        return buildErrorResponseStatus(HttpStatus.BAD_REQUEST, message, "/");
-    }
-
-    @ResponseBody
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ErrorResponse handleMethodArgumentNotValidException(final MethodArgumentNotValidException exception, final Locale locale) {
-        final List<FieldError> errors = exception.getBindingResult().getFieldErrors();
-        final String message = errors.stream().map(error -> messageSource.getMessage(error, locale)).collect(Collectors.joining(", "));
         return buildErrorResponseStatus(HttpStatus.BAD_REQUEST, message, "/");
     }
 
@@ -71,9 +69,21 @@ public class GlobalExceptionHandler {
 //    }
 
     @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ErrorResponse handleMethodArgumentNotValidException(
+        final MethodArgumentNotValidException exception, final Locale locale) {
+        final List<FieldError> errors = exception.getBindingResult().getFieldErrors();
+        final String message = errors.stream().map(error -> messageSource.getMessage(error, locale))
+            .collect(Collectors.joining(", "));
+        return buildErrorResponseStatus(HttpStatus.BAD_REQUEST, message, "/");
+    }
+
+    @ResponseBody
     @ResponseStatus(HttpStatus.FORBIDDEN)
     @ExceptionHandler(AccessDeniedException.class)
-    public ErrorResponse handleAccessDeniedException(final AccessDeniedException exception, final Locale locale) {
+    public ErrorResponse handleAccessDeniedException(final AccessDeniedException exception,
+        final Locale locale) {
         final String message = messageSource.getMessage("exception.access.denied", null, locale);
         return buildErrorResponseStatus(HttpStatus.FORBIDDEN, message, "/");
     }
@@ -87,12 +97,8 @@ public class GlobalExceptionHandler {
         return buildErrorResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR, message, "/");
     }
 
-    public static ErrorResponse buildErrorResponseStatus(final HttpStatus httpStatus, final String message, final String path) {
-        return new ErrorResponse(httpStatus.getReasonPhrase(), message, path, httpStatus.value(), LocalDateTime.now().toString());
-    }
-
-
     public static class ErrorResponse {
+
         private final String error;
         private final String message;
         private final String path;

@@ -1,21 +1,24 @@
 package org.example.api.model;
 
-import org.example.core.usecase.model.CreateStudentOutput;
+import org.example.core.usecase.model.UserOutput;
 
-public class StudentCreateResponse {
+/**
+ * @author : wangqijia create at:  2024/12/6  2:01 PM
+ */
+public class UserResponse {
 
     private String id;
     private String name;
     private int age;
 
-    public StudentCreateResponse(String id, String name, int age) {
+    public UserResponse(String id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
 
-    public static StudentCreateResponse toResponse(CreateStudentOutput output) {
-        return new StudentCreateResponse(output.getId(), output.getName(), output.getAge());
+    public static UserResponse toResponse(UserOutput output) {
+        return new UserResponse(output.getId(), output.getName(), output.getAge());
     }
 
     public String getId() {

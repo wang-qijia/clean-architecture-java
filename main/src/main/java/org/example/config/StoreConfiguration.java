@@ -1,7 +1,7 @@
 package org.example.config;
 
-import org.example.core.usecase.repository.StudentRepository;
-import org.example.store.InMemoryStudentRepository;
+import org.example.core.usecase.repository.UserRepository;
+import org.example.store.InMemoryUserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,9 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class StoreConfiguration {
 
-
     @Bean
-    StudentRepository studentRepository() {
-        return new InMemoryStudentRepository();
+    UserRepository UserRepository() {
+        return new InMemoryUserRepository();
     }
 }

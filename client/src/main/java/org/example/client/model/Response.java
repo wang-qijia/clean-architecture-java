@@ -13,11 +13,16 @@ public class Response<T> {
     public Response() {
     }
 
-    public Response(String code, String message, T data) {
+    private Response(String code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
     }
+
+    public static <T> Response<T> success(T data) {
+        return new Response<>("0", "", data);
+    }
+
 
     public String getCode() {
         return code;

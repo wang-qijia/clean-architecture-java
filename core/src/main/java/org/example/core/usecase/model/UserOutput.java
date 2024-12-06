@@ -1,11 +1,11 @@
 package org.example.core.usecase.model;
 
-import org.example.core.domain.Student;
+import org.example.core.entity.User;
 
 /**
- * @author : wangqijia create at:  2024/12/5  2:25 PM
+ * @author : wangqijia create at:  2024/12/5  10:53 AM
  */
-public class CreateStudentOutput {
+public class UserOutput {
 
     private final String id;
 
@@ -13,15 +13,14 @@ public class CreateStudentOutput {
 
     private final int age;
 
-
-    private CreateStudentOutput(String id, String name, int age) {
+    public UserOutput(String id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
 
-    public static CreateStudentOutput from(Student student) {
-        return new CreateStudentOutput(student.getId(), student.getName(), student.getAge());
+    public static UserOutput from(User User) {
+        return new UserOutput(User.getId(), User.getName(), User.getAge());
     }
 
     public String getId() {

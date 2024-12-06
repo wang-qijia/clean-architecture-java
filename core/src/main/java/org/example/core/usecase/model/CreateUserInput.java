@@ -3,13 +3,13 @@ package org.example.core.usecase.model;
 /**
  * @author : wangqijia create at:  2024/12/5  11:18 AM
  */
-public class CreateStudentInput {
+public class CreateUserInput {
 
     private final String name;
 
     private final int age;
 
-    public CreateStudentInput(String name, int age) {
+    public CreateUserInput(String name, int age) {
         this.name = name;
         this.age = age;
     }

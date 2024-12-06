@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>clean-architecture-java</artifactId>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.0</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <artifactId>core</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
 
-	<groupId>org.example</groupId>
-	<artifactId>clean-architecture-java</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+      <dependency>
+        <artifactId>store-in-memory</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
 
-	<modules>
-		<module>core</module>
+      <dependency>
+        <artifactId>web-api-spring</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <artifactId>web-api-armeria</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <artifactId>client</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <artifactId>api-dubbo</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <artifactId>hibernate-core</artifactId>
+        <groupId>org.hibernate</groupId>
+        <version>6.5.2.Final</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <groupId>org.example</groupId>
+  <modelVersion>4.0.0</modelVersion>
+  <modules>
+    <module>core</module>
     <module>infra</module>
-		<module>main</module>
-		<module>client</module>
-	</modules>
+    <module>main</module>
+    <module>client</module>
+  </modules>
+  <packaging>pom</packaging>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.example</groupId>
-				<artifactId>core</artifactId>
-				<version>1.0-SNAPSHOT</version>
-			</dependency>
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>3.3.0</version> <!-- lookup parent from repository -->
+  </parent>
 
-			<dependency>
-				<groupId>org.example</groupId>
-				<artifactId>store-in-memory</artifactId>
-				<version>1.0-SNAPSHOT</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.example</groupId>
-				<artifactId>web-api-spring</artifactId>
-				<version>1.0-SNAPSHOT</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.example</groupId>
-				<artifactId>web-api-armeria</artifactId>
-				<version>1.0-SNAPSHOT</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.example</groupId>
-				<artifactId>client</artifactId>
-				<version>1.0-SNAPSHOT</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.example</groupId>
-				<artifactId>api-dubbo</artifactId>
-				<version>1.0-SNAPSHOT</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-core</artifactId>
-				<version>6.5.2.Final</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+  <version>1.0-SNAPSHOT</version>
 </project>

@@ -1,27 +1,27 @@
 package org.example.api.model;
 
-import org.example.core.usecase.model.SearchStudentInput;
+import org.example.core.usecase.model.SearchUserInput;
 
 /**
  * @author : wangqijia create at:  2024/12/5  11:21 AM
  */
-public class StudentSearchRequest {
+public class UserSearchRequest {
+
     private int page;
     private int size;
     private String name;
 
-    public StudentSearchRequest(int page, int size) {
+    public UserSearchRequest(int page, int size) {
         this.page = page;
         this.size = size;
     }
 
 
-    public SearchStudentInput toInput(){
-        SearchStudentInput input = new SearchStudentInput(this.page, this.size);
+    public SearchUserInput toInput() {
+        SearchUserInput input = new SearchUserInput(this.page, this.size);
         input.setName(getName());
         return input;
     }
-
 
 
     public String getName() {

@@ -5,8 +5,8 @@ package org.example.core.exception;
  */
 public enum UseCaseErrorCode implements ErrorCode {
 
-    STUDENT_ALREADY_EXISTS("1000", "Student already exists"),
-    STUDENT_NOT_FOUND("1001", "Student not found"),
+    User_ALREADY_EXISTS("1000", "User already exists"),
+    User_NOT_FOUND("1001", "User not found"),
     ;
 
     private final String code;

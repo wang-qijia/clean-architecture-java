@@ -1,17 +1,13 @@
-package org.example.api.model;
+package org.example.client.model;
 
-import org.example.core.usecase.model.CreateStudentInput;
 
 /**
  * @author : wangqijia create at:  2024/12/5  2:26 PM
  */
-public class StudentCreateRequest {
+public class UserCreateRequest {
+
     private String name;
     private int age;
-
-    public CreateStudentInput toInput() {
-        return new CreateStudentInput(this.getName(), this.getAge());
-    }
 
     public String getName() {
         return name;
