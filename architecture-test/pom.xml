@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.cleanarchitecture</groupId>
+    <artifactId>architecture-test</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.cleanarchitecture</groupId>
+        <artifactId>clean-architecture-java-example</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <archunit.version>1.3.0</archunit.version>  <!-- 版本统一管理 -->
+    </properties>
+
+    <dependencies>
+        <!-- 主要模块依赖 -->
+        <dependency>
+            <groupId>org.cleanarchitecture</groupId>
+            <artifactId>main</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.cleanarchitecture</groupId>
+            <artifactId>core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.cleanarchitecture</groupId>
+            <artifactId>store-in-memory</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.cleanarchitecture</groupId>
+            <artifactId>http-api-armeria</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- ArchUnit 相关依赖 -->
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit-junit5</artifactId>
+            <version>${archunit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit</artifactId>
+            <version>${archunit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,11 @@
+logging:
+  level:
+    org.springframework.web: warn
+
+
+
+armeria:
+  ports:
+    - port: 8080
+      protocols:
+        - http

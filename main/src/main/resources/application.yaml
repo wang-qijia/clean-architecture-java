@@ -1,3 +1,6 @@
 spring:
+  application:
+    name: clean-architecture-java
   profiles:
-    active: dev
+    active: http-armeria
+

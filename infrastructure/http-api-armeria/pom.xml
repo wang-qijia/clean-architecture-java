@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- Maven Model Version -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Project Information -->
+  <groupId>org.cleanarchitecture</groupId>
+  <artifactId>http-api-armeria</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <!-- Parent Module Declaration -->
+  <parent>
+    <groupId>org.cleanarchitecture</groupId>
+    <artifactId>infrastructure</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath> <!-- Adjust relative path if needed -->
+  </parent>
+
+  <properties>
+    <armeria.version>1.31.2</armeria.version>
+  </properties>
+
+  <!-- Dependencies -->
+  <dependencies>
+    <!-- Internal Dependencies -->
+    <dependency>
+      <groupId>org.cleanarchitecture</groupId>
+      <artifactId>core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.cleanarchitecture</groupId>
+      <artifactId>http-api-common</artifactId>
+    </dependency>
+
+    <!-- Apache Commons Lang -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
+
+    <!-- Spring Boot JSON Starter -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-json</artifactId>
+    </dependency>
+
+    <!-- Armeria Dependencies -->
+    <dependency>
+      <groupId>com.linecorp.armeria</groupId>
+      <artifactId>armeria-logback</artifactId>
+      <version>${armeria.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.linecorp.armeria</groupId>
+      <artifactId>armeria-spring-boot3-starter</artifactId>
+      <version>${armeria.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerArgument>-parameters</compilerArgument>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+
+</project>

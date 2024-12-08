@@ -1,0 +1,14 @@
+logging:
+  level:
+    org.springframework.web: warn
+
+
+
+dubbo:
+  application:
+    name: ${spring.application.name}
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    name: dubbo
+    port: 20880 # Dubbo 协议端口

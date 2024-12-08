@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- Model version -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.cleanarchitecture</groupId>
+  <artifactId>infrastructure</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <!-- Parent project declaration -->
+  <parent>
+    <groupId>org.cleanarchitecture</groupId>
+    <artifactId>clean-architecture-java-example</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+
+  <!-- Modules under the 'infra' module -->
+  <modules>
+    <module>store-in-memory</module>
+    <module>http-api-spring</module>
+    <module>http-api-armeria</module>
+    <module>rpc-dubbo-provider</module>
+    <module>http-api-common</module>
+  </modules>
+
+  <!-- Dependency Management for internal and shared dependencies -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.cleanarchitecture</groupId>
+        <artifactId>http-api-common</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>

@@ -1,0 +1,9 @@
+logging:
+  level:
+    org.springframework.web: warn
+
+
+server:
+  port: 8080
+
+
