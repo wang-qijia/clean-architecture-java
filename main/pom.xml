@@ -50,6 +50,7 @@
   </dependencies>
 
   <build>
+    <finalName>clean-architecture-java-example-${project.version}</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>

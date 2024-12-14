@@ -2,9 +2,16 @@
 
 # Define the directory of the project (adjust if necessary)
 PROJECT_DIR=$(pwd)
+echo "Work dir: $PROJECT_DIR"
 
 # Define the target JAR file and Maven goals
-JAR_FILE="$PROJECT_DIR/main/target/clean-architecture-java-1.0.0.jar"
+JAR_FILE="$PROJECT_DIR/main/target/clean-architecture-java-example-1.0-SNAPSHOT.jar"
 
-mvn clean install  &&  java -jar "$JAR_FILE"
+# Check the operating system and execute commands accordingly
+OS_NAME=$(uname -s)
+echo "Using JAR file: $JAR_FILE"
+echo  "OS: $OS_NAME"
+
+./mvnw clean install && java -jar "$JAR_FILE"
+
 

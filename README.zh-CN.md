@@ -83,68 +83,15 @@
 
 你可以使用以下命令来运行应用：
 
-```bash
-chmod +x start.sh 
+   ```bash
+   ./start.sh
+   ```
 
-./start.sh
-```
-
-```java
-
-```
-
-
-
-##  目录结构
-```java
-    {{业务领域}}-Service
-    ├── pom.xml (父模块 POM，管理公共依赖和子模块)
-    ├── main (启动模块，包含应用启动类)
-    │   ├── src
-    │   │   ├── main
-    │   │   │   ├── java
-    │   │   │   │   ├── configaction
-    │   │   │   │   ├── Main.java
-    ├── core (核心业务逻辑模块)
-    │   ├── src
-    │   │   ├── main
-    │   │   │   ├── java
-    │   │   │   │   ├── entity
-    │   │   │   │   │   ├── Customer.java
-    │   │   │   │   │   ├── CustomerFactory.java
-    │   │   │   │   ├── usecase
-    │   │   │   │   │   ├── model
-    │   │   │   │   │   │   ├── CreateCustomerInput.java
-    │   │   │   │   │   │   ├── CreateCustomerOutput.java
-    │   │   │   │   │   ├── exception
-    │   │   │   │   │   ├── repository
-    │   │   │   │   │   │   ├── CustomerRepository.java
-    │   │   │   │   │   ├── CreateCustomerUseCase.java
-    ├── infrastructure (基础设施模块)
-    │   ├── src
-    │   │   ├── main
-    │   │   │   ├── java
-    │   │   │   │   ├── store
-    │   │   │   │   │   ├── mysql
-    │   │   │   │   │   │   ├── MysqlCustomerRepository.java
-    │   │   │   │   ├── client
-    │   │   │   │   │   ├── CustomerClient.java
-    │   │   │   │   ├── http
-    │   │   │   │   │   ├── CustomerRestResource.java
-    │   │   │   │   │   ├── model
-    │   │   │   │   │   │   ├── CreateCustomerReq.java
-    │   │   │   │   │   │   ├── CreateCustomerResp.java
-    │   │   │   │   │   ├── exception
-    │   │   │   │   │   ├── mapper
-    │   │   │   │   ├── dubbo
-    │   │   │   │   │   ├── CustomerRpcResource.java
-
-```
 
 ## 测试
-```bash
-mvn test
-```
+   ```bash
+   mvn test
+   ```
 
 ## 贡献指南
 欢迎贡献！如果你想改善本项目或增加新功能，请遵循以下步骤：

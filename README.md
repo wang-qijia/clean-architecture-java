@@ -82,64 +82,15 @@ Before starting, make sure you have the following tools installed:
 
 You can run the application using the following Maven command:
 
-```bash
-chmod +x start.sh 
+   ```bash
+   ./start.sh
+   ```
 
-./start.sh
-```
-
-##  Project Structure
-
-```java
-       {{Domain Service}}-Service
-    ├── pom.xml (Parent module POM, managing common dependencies and submodules)
-    ├── main (Startup module, containing the application entry point)
-    │   ├── src
-    │   │   ├── main
-    │   │   │   ├── java
-    │   │   │   │   ├── configaction
-    │   │   │   │   ├── Main.java
-    ├── core (Core business logic module)
-    │   ├── src
-    │   │   ├── main
-    │   │   │   ├── java
-    │   │   │   │   ├── entity
-    │   │   │   │   │   ├── Customer.java
-    │   │   │   │   │   ├── CustomerFactory.java
-    │   │   │   │   ├── usecase
-    │   │   │   │   │   ├── model
-    │   │   │   │   │   │   ├── CreateCustomerInput.java
-    │   │   │   │   │   │   ├── CreateCustomerOutput.java
-    │   │   │   │   │   ├── exception
-    │   │   │   │   │   ├── repository
-    │   │   │   │   │   │   ├── CustomerRepository.java
-    │   │   │   │   │   ├── CreateCustomerUseCase.java
-    ├── infrastructure (Infrastructure module)
-    │   ├── src
-    │   │   ├── main
-    │   │   │   ├── java
-    │   │   │   │   ├── store
-    │   │   │   │   │   ├── mysql
-    │   │   │   │   │   │   ├── MysqlCustomerRepository.java
-    │   │   │   │   ├── client
-    │   │   │   │   │   ├── CustomerClient.java
-    │   │   │   │   ├── http
-    │   │   │   │   │   ├── CustomerRestResource.java
-    │   │   │   │   │   ├── model
-    │   │   │   │   │   │   ├── CreateCustomerReq.java
-    │   │   │   │   │   │   ├── CreateCustomerResp.java
-    │   │   │   │   │   ├── exception
-    │   │   │   │   │   ├── mapper
-    │   │   │   │   ├── dubbo
-    │   │   │   │   │   ├── CustomerRpcResource.java
-
-
-```
 
 ## Running Tests
-```bash
-mvn test
-```
+   ```bash
+   mvn test
+   ```
 
 ## Contributing
 We welcome contributions! To contribute to this project:
