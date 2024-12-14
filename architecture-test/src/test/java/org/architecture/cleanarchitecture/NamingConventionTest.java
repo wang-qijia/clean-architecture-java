@@ -1,4 +1,4 @@
-package cleanarchitecture.architecture;
+package org.architecture.cleanarchitecture;
 
 public class NamingConventionTest extends ArchitectureTest{
 

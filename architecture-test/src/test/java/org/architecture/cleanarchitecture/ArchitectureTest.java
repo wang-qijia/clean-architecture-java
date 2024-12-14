@@ -1,4 +1,4 @@
-package cleanarchitecture.architecture;
+package org.architecture.cleanarchitecture;
 
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.lang.ArchRule;

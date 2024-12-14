@@ -17,8 +17,10 @@ public class CreateUserUseCase {
     }
 
     public UserOutput create(CreateUserInput input) {
-        Optional<User> userOptional = repository.findByName(input.getName());
-        userOptional.ifPresent((u) -> new UseCaseException(UseCaseErrorCode.User_NOT_FOUND));
+        Optional<User> existingUser = repository.findByName(input.getName());
+        if (existingUser.isPresent()) {
+            throw new UseCaseException(UseCaseErrorCode.User_NOT_FOUND);
+        }
 
         User user = User.create(input.getName(), input.getAge());
         repository.save(user);
