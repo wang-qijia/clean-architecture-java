@@ -28,7 +28,7 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
 
       - name: Run tests with Maven
-        run: mvn clean verify
+        run: mvn clean test verify
 
       - name: Upload test report
         uses: actions/upload-artifact@v3

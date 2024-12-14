@@ -1,8 +1,9 @@
-package org.architecture.cleanarchitecture;
+package org.cleanarchitecture.archunit;
 
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
+import org.cleanarchitecture.main.Application;
 
 import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
