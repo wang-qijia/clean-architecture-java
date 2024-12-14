@@ -38,14 +38,14 @@ public class UserRestResource {
     }
 
 
-    @PostMapping("/")
+    @PostMapping("")
     public UserResponse create(@RequestBody UserCreateRequest request) {
         UserOutput result = createUserUseCase.create(request.toInput());
         return UserResponse.toResponse(result);
     }
 
 
-    @GetMapping("/")
+    @GetMapping("")
     public UserSearchResponse search(UserSearchRequest request) {
         SearchUserOutput UserOutput = searchUserUseCase.search(request.toInput());
         return UserSearchResponse.toResponse(UserOutput);

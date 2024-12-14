@@ -45,14 +45,14 @@ public class UserRestResource {
     }
 
 
-    @Post("/")
+    @Post("")
     public HttpResponse create(@RequestObject UserCreateRequest request) {
         UserOutput result = createUserUseCase.create(request.toInput());
         return HttpResponse.ofJson(UserResponse.toResponse(result));
     }
 
 
-    @Get("/")
+    @Get("")
     public HttpResponse search(UserSearchRequest request) {
         SearchUserOutput UserOutput = searchUserUseCase.search(request.toInput());
         return HttpResponse.ofJson(UserSearchResponse.toResponse(UserOutput));

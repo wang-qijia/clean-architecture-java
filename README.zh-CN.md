@@ -86,6 +86,16 @@
    ```bash
    ./start.sh
    ```
+   
+   Create a user 
+   ```bash
+   curl -X POST http://localhost:8080/users \
+     -H "Content-Type: application/json" \
+     -d '{
+           "name": "John Doe",
+           "age": 30
+         }'
+   ```
 
 
 ## 测试
