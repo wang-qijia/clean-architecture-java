@@ -55,7 +55,7 @@ The project adopts a layered approach and includes the following components:
 
 Before starting, make sure you have the following tools installed:
 
-- **JDK 11 or higher** (or another compatible Java version)
+- **JDK 17 or higher** (or another compatible Java version)
 - **Maven**: For building and managing project dependencies
 
 ### Installation Steps
