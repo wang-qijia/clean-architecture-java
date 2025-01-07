@@ -1,4 +1,4 @@
-package org.cleanarchitecture.infrastructure.rpc.api.model;
+package org.cleanarchitecture.api.model;
 
 public class UserResponse {
 

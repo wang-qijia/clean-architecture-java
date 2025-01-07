@@ -16,7 +16,7 @@
 
     <!-- Modules under the 'infra' module -->
     <modules>
-        <module>rpc-dubbo-api</module>
+        <module>api</module>
     </modules>
 
 

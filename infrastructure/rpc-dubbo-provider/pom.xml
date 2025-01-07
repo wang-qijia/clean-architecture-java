@@ -28,7 +28,7 @@
     <!-- Internal Dependencies -->
     <dependency>
       <groupId>org.cleanarchitecture</groupId>
-      <artifactId>rpc-dubbo-api</artifactId>
+      <artifactId>api</artifactId>
     </dependency>
     <dependency>
       <groupId>org.cleanarchitecture</groupId>

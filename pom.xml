@@ -101,14 +101,10 @@
         <artifactId>http-api-armeria</artifactId>
         <version>${project.version}</version> 
       </dependency>
+
       <dependency>
         <groupId>org.cleanarchitecture</groupId>
-        <artifactId>client</artifactId>
-        <version>${project.version}</version> 
-      </dependency>
-      <dependency>
-        <groupId>org.cleanarchitecture</groupId>
-        <artifactId>rpc-dubbo-api</artifactId>
+        <artifactId>api</artifactId>
         <version>${project.version}</version>
       </dependency>
 

@@ -76,7 +76,7 @@
 3. 使用 Maven 构建项目：
 
     ```bash
-    mvn clean install
+    ./mvnw clean install
     ```
 
 ### 运行应用

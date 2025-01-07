@@ -75,7 +75,7 @@ Before starting, make sure you have the following tools installed:
 3. Build the project using Maven:
 
     ```bash
-    mvn clean install
+    ./mvnw clean install
     ```
 
 ### Running the Application

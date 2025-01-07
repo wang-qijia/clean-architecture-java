@@ -11,83 +11,35 @@ import com.linecorp.armeria.server.ServiceRequestContext;
 import com.linecorp.armeria.server.annotation.ExceptionHandlerFunction;
 import io.micrometer.core.instrument.config.validate.ValidationException;
 import java.time.Instant;
+
+import org.cleanarchitecture.core.usecase.exception.ErrorCode;
 import org.cleanarchitecture.core.usecase.exception.UseCaseException;
+import org.cleanarchitecture.infrastructure.http.error.ErrorResponse;
+import org.cleanarchitecture.infrastructure.http.error.HttpErrorCode;
 
 
 public class GlobalExceptionHandler implements ExceptionHandlerFunction {
 
     @Override
-    public HttpResponse handleException(ServiceRequestContext ctx, HttpRequest req,
-        Throwable cause) {
+    public HttpResponse handleException(ServiceRequestContext ctx, HttpRequest req, Throwable cause) {
         if (cause instanceof ValidationException) {
             final HttpStatus status = HttpStatus.BAD_REQUEST;
-            return HttpResponse.ofJson(status, new ErrorResponse(status.reasonPhrase(),
-                cause.getMessage(),
-                req.path(),
-                status.code(),
-                Instant.now().toString()));
+            ErrorCode errorCode = HttpErrorCode.INVALID_PARAMETER;
+            return HttpResponse.ofJson(status, new ErrorResponse(errorCode.getCode(), errorCode.getMessage()));
         }
 
         if (cause instanceof UseCaseException) {
             UseCaseException caseException = (UseCaseException) cause;
             final HttpStatus status = HttpStatus.BAD_REQUEST;
-            return HttpResponse.ofJson(status, new ErrorResponse(status.reasonPhrase(),
-                caseException.getMessage(),
-                req.path(),
-                status.code(),
-                Instant.now().toString()));
+            ErrorCode errorCode = caseException.getErrorCode();
+            return HttpResponse.ofJson(status, new ErrorResponse(errorCode.getCode(), errorCode.getMessage()));
+        } else if ((cause instanceof Exception)) {
+            final HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+            ErrorCode errorCode =HttpErrorCode.INTERNAL_SERVER_ERROR;
+            return HttpResponse.ofJson(status, new ErrorResponse(errorCode.getCode(), errorCode.getMessage()));
         }
         return ExceptionHandlerFunction.fallthrough();
     }
 
-    /**
-     * A sample HTTP response which is sent to a client when a {@link ValidationException} is
-     * raised.
-     */
-    public static class ErrorResponse {
 
-        private final String error;
-        private final String message;
-        private final String path;
-        private final int status;
-        private final String timestamp;
-
-        @JsonCreator
-        ErrorResponse(@JsonProperty("error") String error,
-            @JsonProperty("message") String message,
-            @JsonProperty("path") String path,
-            @JsonProperty("status") int status,
-            @JsonProperty("timestamp") String timestamp) {
-            this.error = requireNonNull(error, "error");
-            this.message = requireNonNull(message, "message");
-            this.path = requireNonNull(path, "path");
-            this.status = status;
-            this.timestamp = requireNonNull(timestamp, "timestamp");
-        }
-
-        @JsonProperty
-        public String error() {
-            return error;
-        }
-
-        @JsonProperty
-        public String message() {
-            return message;
-        }
-
-        @JsonProperty
-        public String path() {
-            return path;
-        }
-
-        @JsonProperty
-        public int status() {
-            return status;
-        }
-
-        @JsonProperty
-        public String timestamp() {
-            return timestamp;
-        }
-    }
 }

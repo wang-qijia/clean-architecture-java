@@ -1,4 +1,4 @@
-package org.cleanarchitecture.infrastructure.rpc.api.model;
+package org.cleanarchitecture.api.model;
 
 /**
  * @author : wangqijia create at:  2024/12/5  5:32 PM
